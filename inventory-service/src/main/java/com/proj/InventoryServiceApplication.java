@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import com.proj.model.Inventory;
 import com.proj.repo.InventoryRepository;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class InventoryServiceApplication implements CommandLineRunner{
 
 	@Autowired
@@ -22,7 +24,7 @@ public class InventoryServiceApplication implements CommandLineRunner{
 		/*
 		 * Inventory in = new Inventory(); in.setSkuCode("iphone_13");
 		 * in.setQuantity(100);
-		 * 
+		 *  
 		 * Inventory inn = new Inventory(); inn.setSkuCode("iphone_13_red");
 		 * inn.setQuantity(0);
 		 * 
