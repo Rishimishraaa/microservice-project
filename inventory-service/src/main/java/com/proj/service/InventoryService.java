@@ -11,7 +11,10 @@ import com.proj.dto.InventoryResponse;
 import com.proj.model.Inventory;
 import com.proj.repo.InventoryRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class InventoryService {
 
 	@Autowired
@@ -19,6 +22,10 @@ public class InventoryService {
 	
 	@Transactional(readOnly = true)
 	public List<InventoryResponse> isInStoke(List<String> skuCode) {
+		log.info("Wait started");
+		
+		
+		log.info("Wait ended");
 		return  repo.findBySkuCodeIn(skuCode).stream().map(in -> 
 					InventoryResponse.builder()
 					.skuCode(in.getSkuCode())
